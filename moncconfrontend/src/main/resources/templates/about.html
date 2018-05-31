@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body class="background">
+<div th:replace="common/header :: navbar" />
+ <div class="container">
+     <div class="row" style="background-color: #f6ffd9">
+         <div class="col-xs-4">
+
+             <strong>About Us</strong>
+             <p style="text-align: justify; font-family: 'Open Sans', sans-serif; font-size: medium">
+                 MOC Construction and Trading Ltd is an organization that provides construction management, design build and general contracting services to the private individuals cooperate bodies and government within the region of Ghana. We offer consultancy advise to clients and assist our valued customers and stakeholders on the best practices to ensure an overall satisfaction to all parties. </p>
+            <a th:href="@{/gallery}"><img src="/image/build1.jpg" style="width: 380px; height:200px;"/></a>
+         </div>
+         <div class="col-xs-8" style="background-color: #f6ffd9">
+
+         </div>
+     </div>
+     <hr/>
+     <div class="row">
+
+     </div>
+ </div>
+
+<!-- end of container -->
+
+<div th:replace="common/header :: footer"/>
+<div th:replace="common/header :: body-bottom-scripts" />
+</body>
+</html>

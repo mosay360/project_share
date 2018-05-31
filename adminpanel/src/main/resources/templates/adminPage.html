@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<!--<head th:replace="common/header :: common-header" />-->
+
+<body>
+<div th:replace="common/header" />
+
+<div id="page-wrapper">
+        <div class="container-fluid">
+        <div class="row"  >
+            <div class="col-md-offset-2 col-md-10">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">All Employees</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                           <!-- <table class="table table-responsive">
+                                <thead>
+                                <tr class="btn-success">
+                                    <th>Firstname</th>
+                                    <th>Middlename</th>
+                                    <th>Lastname</th>
+                                    <th> Hometown</th>
+                                    <th>Birth Place</th>
+                                    <th>DoB</th>
+                                    <th>Gender</th>
+                                    <th>Contact</th>
+                                    <th>Postal Address</th>
+                                    <th> Residential Address</th>
+                                    <th>Operation</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:if="${#lists.isEmpty(allEmployee)}" class="btn-warning">
+                                    <td colspan="4" align="center">No Employee Registered Yet!!!</td>
+                                </tr>
+                                <tr th:each="emp : ${allEmployee}">
+                                    <td th:text="${emp.firstname}"></td>
+                                    <td th:text="${emp.middlename}"></td>
+                                    <td th:text="${emp.lastname}"></td>
+                                    <td th:text="${emp.hometown}"></td>
+                                    <td th:text="${emp.place_birth}"></td>
+                                    <td th:text="${emp.DoB}"></td>
+                                    <td th:text="${emp.gender}"></td>
+                                    <td th:text="${emp.contact}"></td>
+                                    <td th:text="${emp.postalAddress}"></td>
+                                    <td th:text="${emp.residualAddress}"></td>
+                                    <td align="center">
+                                        <a th:href="@{/employeeDetails/edit/{id}(id=${emp.id})}"><span
+                                                class="glyphicon glyphicon-edit"></span></a> &nbsp; &nbsp;
+                                        <a th:href="@{/employeeDetails/delete/{id}(id=${emp.id})}"><span
+                                                class="glyphicon glyphicon-trash"></span></a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>-->
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+
+<script th:src="@{js/jquery.js}"></script>
+<script th:src="@{js/bootstrap.js}"></script>
+<script th:src="@{js/bootstrap.mini.js}"></script>
+
+<div th:replace="common/header :: body-bottom-scripts" />
+
+</body>
+</html>

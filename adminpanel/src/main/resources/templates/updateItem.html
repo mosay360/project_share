@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body>
+<div th:replace="common/header" ></div>
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row"  >
+            <div class="col-md-offset-2 col-md-10">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">All Employees</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="container">
+                            <div class="row">
+                                <form class="form-horizontal" th:action="@{/items/updateItem}" method="post"
+                                      enctype="multipart/form-data">
+                                    <fieldset>
+                                        <legend class="center-block">
+                                            Update Item Information<span style="font-size: small"> * is a
+							required field</span>
+                                        </legend>
+
+                                        <input hidden="hidden" name="id" th:value="${items.id}" />
+
+
+                                        <!-- title -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="title">* Item Name</label>
+
+                                            <div class="col-md-8">
+                                                <input type="text" name="title" class="form-control" id="title"
+                                                       th:value="${items.title}" required="required" placeholder="Item name" />
+                                                <span class="help-block">Name of the Item</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- author -->
+
+
+                                        <!-- publisher -->
+
+
+                                        <!-- publication date -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="postDate">Post
+                                                Date</label>
+                                            <div class="col-md-8">
+                                                <input type="date" class="form-control" id="postDate"
+                                                       name="postDate" th:value="${items.postDate}"
+                                                       placeholder="Post Date" /> <span class="help-block">Post
+								Date of the item</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- language -->
+
+
+                                        <!-- category -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="category">*
+                                                Category</label>
+                                            <div class="col-md-8">
+                                                <select th:value="${items.category}" id="category" name="category"
+                                                        class="form-control">
+                                                    <option value="" selected="selected" disabled="disabled">Please
+                                                        select an option...</option>
+                                                    <option value="Civil"
+                                                            th:selected="(${items.category}=='Civil')">Civil</option>
+                                                    <option value="Construction"
+                                                            th:selected="(${items.category}=='Construction')">Construction</option>
+                                                    <option value="Engineering"
+                                                            th:selected="(${items.category}=='Engineering')">Engineering</option>
+                                                    <option value="Borehole" th:selected="(${items.category}=='Borhole')">Borehole</option>
+                                                    <option value="Roofing" th:selected="(${items.category}=='Roofing')">Roofing</option>
+                                                    <option value="Trading" th:selected="(${items.category}=='Trading')">Trading</option>
+                                                    <option value="Precast Material" th:selected="(${items.category}=='Precast Materials')">Precast Materials</option>
+                                                    <option value="Biogas" th:selected="(${items.category}=='Biogas')">Biogas</option>
+                                                    <option value="Property" th:selected="(${items.category}=='Property')">Property</option>
+                                                    <option value="Equipment Hiring" th:selected="(${items.category}=='Equipment Hiring')">Equipment Hiring</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- pages -->
+
+
+
+                                        <!-- format -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="format">Format</label>
+                                            <div class="col-md-8">
+                                                <select th:value="${items.format}" id="format" name="format"
+                                                        class="form-control">
+                                                    <option value="paperback">Paperback</option>
+                                                    <option value="hardcover">Hardcover</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- isbn -->
+
+
+                                        <!-- shipping weight -->
+
+
+                                        <!-- list price -->
+
+
+                                        <!-- our price -->
+
+
+                                        <!-- in stock number -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="inStockNumber">Number
+                                                in stock</label>
+                                            <div class="col-md-8">
+                                                <input th:value="${items.inStockNumber}" type="number"
+                                                       name="inStockNumber" class="form-control" id="inStockNumber"
+                                                       placeholder="Number of items in-stock " /> <span
+                                                    class="help-block">Number of items in-stock</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- status of book -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="status">Status</label>
+                                            <div class="col-md-8">
+                                                <label><input value="true" type="radio" name="active" id="status"
+                                                              th:checked="${items.active}" /> Active </label> <label><input
+                                                    value="false" type="radio" name="active" th:checked="${!items.active}"/>
+                                                Inactive </label> <span class="help-block">Whether the item is
+								active or inactive</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- description -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="description">Description</label>
+                                            <div class="col-md-8">
+							<textarea name="description" rows="5" class="form-control"
+                                      id="description" th:value="${items.description}" th:text="${items.description}"
+                                      placeholder="Description" />
+                                                <span class="help-block">Description of the item</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- upload image -->
+                                        <div class="form-group">
+                                            <div class="col-md-2">
+                                                <label for="itemImage">Upload item image</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input id="itemImage" type="file" name="itemImage"
+                                                       th:value="${items.itemImage}" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-8">
+                                                <button type="submit" class="btn btn-success">Update Item</button>
+                                                <a class="btn btn-danger" th:href="@{/items/itemInfo(id=${items.id})}">Cancel</a>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+
+
+
+<div th:replace="common/header :: body-bottom-scripts" />
+
+</body>
+</html>

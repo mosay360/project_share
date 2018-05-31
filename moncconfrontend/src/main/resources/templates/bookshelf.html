@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body>
+<div th:replace="common/header :: navbar" />
+
+<div class="container">
+    <div class="row" style="margin-bottom: -100px;">
+        <div class="col-xs-8">
+            <h2 class="section-headline">
+                <h2 class="section-headline">
+						<span
+                                th:text="${user}? ${#strings.toUpperCase(user.username)} : 'All Books'"></span>
+                </h2>
+            </h2>
+        </div>
+        <div class="col-xs-4">
+            <img src="/image/logo.png" class="img-responsive" />
+        </div>
+    </div>
+    <hr
+            style="position: absolute; width: 100%; height: 6px; background-color: #333; z-index: -1; margin-top: -80px;" />
+    <img class="img-responsive" src="/image/wood.png" style="margin-top: -75px;" />
+
+    <div class="row" style="margin-top: 60px;">
+        <div class="col-xs-3">
+            <h3><label for="category">Category</label></h3>
+            <div class="list-group" id="category">
+                <a th:href="@{/bookshelf(category='all')}" th:classappend="${activeAll}? 'active'" class="list-group-item">All</a>
+                <a th:href="@{/searchByCategory(category='Management')}" th:classappend="${activeManagement}? 'active'" class="list-group-item">Management</a>
+                <a th:href="@{/searchByCategory(category='Roofing')}" th:classappend="${activeRoofing}? 'active'" class="list-group-item">Roofing</a>
+                <a th:href="@{/searchByCategory(category='Property')}" th:classappend="${activeProperty}? 'active'" class="list-group-item">Property</a>
+                <a th:href="@{/searchByCategory(category='Trading')}" th:classappend="${activeTrading}? 'active'" class="list-group-item">Trading</a>
+                <a th:href="@{/searchByCategory(category='Biogas')}" th:classappend="${activeBiogas}? 'active'" class="list-group-item">Biogas</a>
+                <a th:href="@{/searchByCategory(category='Borehole')}" th:classappend="${activeBorehole}? 'active'" class="list-group-item">Borehole</a>
+                <a th:href="@{/searchByCategory(category='Civil')}" th:classappend="${activeCivil}? 'active'" class="list-group-item">Civil</a>
+                <a th:href="@{/searchByCategory(category='Construction')}" th:classappend="${activeConstruction}? 'active'" class="list-group-item">Construction</a>
+                <a th:href="@{/searchByCategory(category='Fiction')}" th:classappend="${activeFiction}? 'active'" class="list-group-item">Fiction</a>
+                <a th:href="@{/searchByCategory(category='Engineering')}" th:classappend="${activeEngineering}? 'active'" class="list-group-item">Engineering</a>
+                <a th:href="@{/searchByCategory(category='Equipment Hiring')}" th:classappend="${activeEquipmentHiring}? 'active'" class="list-group-item">Equipment Hiring</a>
+                <a th:href="@{/searchByCategory(category='Arts &amp; Literature')}" th:classappend="${activeArtsLiterature}? 'active'" class="list-group-item">Arts &amp; Literature</a>
+            </div>
+        </div>
+
+        <div class="col-xs-9">
+            <div th:if="${emptyList}">
+                <h5 style="font-style: italic;">Oops, no result is found. Try
+                    something else or try again later.</h5>
+            </div>
+
+            <table border="0" id="itemList">
+                <thead>
+                <tr>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="book-item" data-th-each="items : ${itemList}">
+                    <td>
+                        <div th:if="${items != null}">
+                            <div class="row" style="margin-bottom: 50px;">
+                                <div class="col-xs-3">
+                                    <a th:href="@{/itemDetail?id=}+${items.id}"><img class="img-responsive shelf-book" th:src="#{adminPath}+@{/image/image/}+${items.id}+'.jpg'" /></a>
+                                </div>
+
+                                <div class="col-xs-9">
+                                    <a th:href="@{/itemDetail?id=}+${items.id}"><h4
+                                            th:text="${items.title}"></h4></a> <span th:text="${items.postDate}"></span>
+
+                                    <a th:href="@{/itemDetail?id=}+${items.id}"> <span th:text="${#strings.capitalize(items.format)}"> </span></a>
+
+                                    <a th:href="@{/itemDetail?id=}+${items.id}"></a>
+
+
+                                    <p th:utext="${#strings.abbreviate(items.description, 1000)}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- end of container -->
+<div th:replace="common/header :: footer"/>
+
+<div th:replace="common/header :: body-bottom-scripts" />
+
+<script>
+    $(document).ready(function() {
+        $('#itemList').DataTable({
+            "lengthMenu":[[5,10,15,20,-1],[5,10,15,20,"All"]],
+            "ordering":false,
+            stateSave:true
+        });
+
+        $("#itemList").on('page.dt', function() {
+            $('html, body').animate({
+                scrollTop: $('#itemList').offset().top
+            }, 200);
+        });
+    });
+</script>
+</body>
+</html>

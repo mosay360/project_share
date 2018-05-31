@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body>
+<div th:replace="common/header" ></div>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">All Employees</h3>
+                    </div>
+                    <div class="panel-body" style="background-color:#ededed;">
+
+                        <div >
+                            <div class="row" >
+                                <form class="form-horizontal" th:action="@{/events/add}" method="post"
+                                      enctype="multipart/form-data">
+                                    <fieldset>
+                                        <legend class="center-block">
+                                            &nbsp; &nbsp; &nbsp; New Book Information<span style="font-size: small"> * is a
+							required field</span>
+                                        </legend>
+
+
+                                        <!-- title -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="topic">* Item Name:</label>
+
+                                            <div class="col-md-8">
+                                                <input type="text" name="topic" class="form-control" id="topic"
+                                                       th:value="${events.topic}" required="required" placeholder="Event Topic" />
+                                                <span class="help-block">Name of the Event</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- author -->
+
+
+                                        <!-- publisher -->
+
+                                        <!-- publication date -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="startDate"> * Starting
+                                                Date:</label>
+                                            <div class="col-md-8">
+                                                <input type="date" class="form-control" id="startDate"
+                                                       name="startDate" th:value="${events.startDate}"
+                                                       placeholder="Event Starting  Date"  required="required"/> <span class="help-block">Post
+								Date of Event </span>
+                                            </div>
+                                        </div>
+
+                                        <!--Event ending Date-->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="endDate"> * Starting
+                                                Date:</label>
+                                            <div class="col-md-8">
+                                                <input type="date" class="form-control" id="endDate"
+                                                       name="endDate" th:value="${events.endDate}"
+                                                       placeholder="Event Ending  Date"  required="required"/> <span class="help-block">Post
+								Date of Event </span>
+                                            </div>
+                                        </div>
+                                        <!-- language -->
+
+
+                                        <!-- category -->
+
+
+                                        <!-- pages -->
+
+
+                                        <!-- format -->
+
+
+                                        <!-- isbn -->
+
+
+                                        <!-- shipping weight -->
+
+                                        <!-- list price -->
+
+
+                                        <!-- our price -->
+
+
+                                        <!-- in stock number -->
+
+                                        <!-- status of book -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="status">Status:</label>
+                                            <div class="col-md-8">
+                                                <label><input value="true" type="radio" name="active"
+                                                              checked="checked" id="status" /> Active </label> <label><input
+                                                    value="false" type="radio" name="active" />
+                                                Inactive </label> <span class="help-block">Whether the Event is
+								active or inactive</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- description -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="description">Description:</label>
+                                            <div class="col-md-8">
+							<textarea name="description" rows="5" class="form-control"
+                                      id="description" th:value="${events.description}"
+                                      placeholder="Description" />
+                                                <span class="help-block">Description of the book</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- upload image -->
+                                        <!--<div class="form-group">
+
+                                            <label class="col-md-2 control-label" for="bookImage" >Upload Item image:</label>
+
+                                            <div class="col-md-8">
+                                                <input id="bookImage" type="file" name="bookImage"
+                                                       th:value="${items.itemImage}" />
+                                            </div>
+                                        </div>-->
+
+                                        <div class="form-group">
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-8">
+                                                <button type="submit" class="btn btn-success">Add Event</button>
+                                                <a class="btn btn-danger" th:href="@{/}">Cancel</a>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /#page-wrapper -->
+</div>
+<div th:replace="common/header :: body-bottom-scripts" />
+</body>
+</html>

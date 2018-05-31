@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:fragment="common-header">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width , initial-scale=1 shrink-to-fit=no "/>
+    <!-- data table -->
+    <link th:href="@{/css/jquery.dataTables.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/dataTables.bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
+
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
+
+    <link rel="icon" th:href="@{/image/applie-touch-icon.png}" />
+<link th:href="@{/css/bootstrap-responsive.mini.css}" rel="stylesheet"/>
+
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/css/bootstrap.mini.css}" rel="stylesheet"/>
+    <link th:href="@{/css/sb-admin.css}" rel="stylesheet"/>
+    <link th:href="@{/css/body.css}" rel="stylesheet"/>
+
+    <title>Title</title>
+
+
+</head>
+<body>
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/}"><span class="glyphicon glyphicon-home"></span> Moc Panel</a>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                <ul class="dropdown-menu message-dropdown">
+                    <li class="message-preview">
+                        <a href="#">
+                            <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt=""/>
+                                    </span>
+                                <div class="media-body">
+                                    <h5 class="media-heading"><strong>John Smith</strong>
+                                    </h5>
+                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="message-preview">
+                        <a href="#">
+                            <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt=""/>
+                                    </span>
+                                <div class="media-body">
+                                    <h5 class="media-heading"><strong>John Smith</strong>
+                                    </h5>
+                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="message-preview">
+                        <a href="#">
+                            <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt=""/>
+                                    </span>
+                                <div class="media-body">
+                                    <h5 class="media-heading"><strong>John Smith</strong>
+                                    </h5>
+                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="message-footer">
+                        <a href="#">Read All New Messages</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                <ul class="dropdown-menu alert-dropdown">
+                    <li>
+                        <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">View All</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a th:href="@{/logout}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li class="active">
+                    <a th:href="@{/events/add}"><span class="glyphicon glyphicon-dashboard "></span> Add Event</a>
+                </li>
+                <li>
+                    <a th:href="@{/events/eventsList}"><span class="glyphicon glyphicon-list-alt"></span> View Event</a>
+                </li>
+                <li>
+                    <a th:href="@{/items/add}"><span class="glyphicon glyphicon-book"></span> Add Item</a>
+                </li>
+                <li>
+                    <a th:href="@{/items/itemList}"><span class="glyphicon glyphicon-list-alt"></span> View Item</a>
+                </li>
+                <li>
+                    <a th:href="@{/logout}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+
+    <!-- /#page-wrapper -->
+
+</div>
+
+<div th:fragment="body-bottom-scripts">
+
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/bootbox.min.js}"></script>
+    <script th:src="@{/js/scripts.js}"></script>
+<script th:src="@{/js/dataTable.bootstrap.js}"></script>
+    <!-- data table -->
+    <script th:src="@{/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/js/dataTables.bootstrap.min.js}"></script>
+</div>
+
+</body>
+</html>

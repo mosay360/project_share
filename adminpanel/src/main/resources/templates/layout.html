@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:fragment="common-header">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--  Each token will be replaced by their respective titles in the resulting page. -->
+    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Java Programmer</title>
+    <link th:replace="/fragments/style"/>
+</head>
+<body>
+<div th:replace="/fragments/header"></div>
+
+<div class="fluid-container " style="margin-top:80px;">
+    <div layout:fragment="content"></div>
+</div>
+
+<div th:replace="/fragments/footer"></div>
+
+<div th:replace="/fragments/js"></div>
+</body>
+</html>
